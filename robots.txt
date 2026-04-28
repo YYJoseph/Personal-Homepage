@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://YYJoseph.github.io/sitemap.xml
