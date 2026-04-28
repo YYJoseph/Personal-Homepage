@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Joseph Yuan (袁野) | PhD Candidate @ PolyU</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary: #1a3a5c;
+      --accent: #2e7d9f;
+      --accent-light: #e8f4f8;
+      --text: #2d2d2d;
+      --text-muted: #666;
+      --border: #e2e8f0;
+      --bg: #f8fafc;
+      --white: #ffffff;
+      --radius: 12px;
+      --shadow: 0 2px 16px rgba(0,0,0,0.07);
+      --shadow-hover: 0 6px 28px rgba(0,0,0,0.12);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+    .nav-brand {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--primary);
+      text-decoration: none;
+      letter-spacing: -0.3px;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ── LAYOUT ── */
+    .container { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
+
+    section { padding: 4rem 0; }
+    section + section { border-top: 1px solid var(--border); }
+
+    h2.section-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    h2.section-title::after {
+      content: '';
+      flex: 1;
+      height: 2px;
+      background: linear-gradient(to right, var(--accent-light), transparent);
+      border-radius: 2px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 5rem 0 4rem;
+      border-top: none;
+    }
+    .hero-inner {
+      display: flex;
+      align-items: flex-start;
+      gap: 3rem;
+    }
+    .avatar-wrap {
+      flex-shrink: 0;
+    }
+    .avatar {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--white);
+      box-shadow: var(--shadow);
+      background: linear-gradient(135deg, #c8dff0, #a8c4dc);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      color: var(--primary);
+    }
+    .hero-content { flex: 1; }
+    .hero-name {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.2;
+      margin-bottom: 0.4rem;
+      letter-spacing: -0.5px;
+    }
+    .hero-cn-name {
+      font-family: 'Noto Serif', serif;
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 0.8rem;
+    }
+    .hero-position {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      margin-bottom: 1.2rem;
+    }
+    .hero-bio {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      max-width: 560px;
+      margin-bottom: 1.5rem;
+    }
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+    }
+    .hero-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.45rem 1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: 1.5px solid var(--border);
+      color: var(--text);
+      background: var(--white);
+    }
+    .hero-links a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      box-shadow: var(--shadow);
+    }
+    .hero-links a.primary {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+    .hero-links a.primary:hover {
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    /* ── NEWS ── */
+    .news-list { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
+    .news-list li {
+      display: flex;
+      gap: 1rem;
+      align-items: baseline;
+      font-size: 0.92rem;
+    }
+    .news-date {
+      flex-shrink: 0;
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.82rem;
+      min-width: 90px;
+    }
+
+    /* ── RESEARCH ── */
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1.2rem;
+    }
+    .research-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .research-card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-2px);
+    }
+    .research-icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.8rem;
+    }
+    .research-card h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    .research-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* ── PUBLICATIONS ── */
+    .pub-list { display: flex; flex-direction: column; gap: 1.5rem; }
+    .pub-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem 1.6rem;
+      transition: box-shadow 0.2s;
+      position: relative;
+    }
+    .pub-item:hover { box-shadow: var(--shadow-hover); }
+    .pub-badge {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.18rem 0.6rem;
+      border-radius: 4px;
+      margin-bottom: 0.6rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .pub-badge.workshop { background: #6b7280; }
+    .pub-badge.preprint { background: #9333ea; }
+    .pub-item h3 {
+      font-size: 0.97rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.35rem;
+      line-height: 1.5;
+    }
+    .pub-authors {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.3rem;
+    }
+    .pub-authors strong { color: var(--primary); }
+    .pub-venue {
+      font-size: 0.85rem;
+      color: var(--accent);
+      font-style: italic;
+      margin-bottom: 0.7rem;
+    }
+    .pub-links { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+    .pub-links a {
+      font-size: 0.78rem;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 0.22rem 0.7rem;
+      border-radius: 5px;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      transition: all 0.2s;
+    }
+    .pub-links a:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── EDUCATION ── */
+    .timeline { position: relative; padding-left: 1.5rem; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: var(--border);
+      border-radius: 2px;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -1.5rem;
+      top: 7px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--white);
+      box-shadow: 0 0 0 2px var(--accent);
+    }
+    .timeline-item:last-child { margin-bottom: 0; }
+    .tl-period {
+      font-size: 0.8rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+    .tl-degree {
+      font-weight: 600;
+      color: var(--primary);
+      font-size: 0.97rem;
+    }
+    .tl-school {
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+    .tl-detail {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-top: 0.2rem;
+    }
+
+    /* ── CONTACT ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.4rem;
+    }
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--accent-light);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .contact-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 0.1rem;
+    }
+    .contact-value {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text);
+    }
+    .contact-value a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .contact-value a:hover { color: var(--accent); }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      border-top: 1px solid var(--border);
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .hero-inner { flex-direction: column; gap: 1.5rem; align-items: center; text-align: center; }
+      .hero-name { font-size: 1.8rem; }
+      .hero-links { justify-content: center; }
+      .contact-grid { grid-template-columns: 1fr; }
+      nav { padding: 0 1rem; }
+      .nav-links { gap: 1.2rem; }
+      section { padding: 3rem 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVIGATION ── -->
+<nav>
+  <a href="#" class="nav-brand">Joseph Yuan</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero" id="about">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="avatar-wrap">
+        <!-- Replace with: <img src="avatar.jpg" alt="Joseph Yuan" class="avatar" /> -->
+        <div class="avatar">
+          <i class="fa-solid fa-user-graduate"></i>
+        </div>
+      </div>
+      <div class="hero-content">
+        <div class="hero-name">Joseph Yuan (袁野)</div>
+        <div class="hero-cn-name">袁野 · Ye Yuan</div>
+        <div class="hero-position">
+          <i class="fa-solid fa-graduation-cap"></i>
+          PhD Candidate · Year 2 · The Hong Kong Polytechnic University
+        </div>
+        <p class="hero-bio">
+          I am a second-year PhD student at the <strong>Department of [Your Department]</strong>,
+          The Hong Kong Polytechnic University, advised by
+          <a href="#" style="color:var(--accent)">Prof. [Supervisor Name]</a>.
+          My research focuses on <strong>Beyond-Diagonal Reconfigurable Intelligent Surfaces (BD-RIS)</strong>
+          in wireless communications — a next-generation architecture that breaks the constraints of
+          conventional diagonal RIS, enabling richer wave manipulation and higher spectral efficiency
+          for future 6G networks.
+        </p>
+        <div class="hero-links">
+          <a href="cv.pdf" class="primary"><i class="fa-solid fa-file-lines"></i> CV</a>
+          <a href="mailto:joseph.yuan@connect.polyu.hk"><i class="fa-solid fa-envelope"></i> Email</a>
+          <a href="https://scholar.google.com/citations?user=Ty2prD8AAAAJ&hl=zh-CN" target="_blank"><i class="fa-brands fa-google-scholar"></i> Google Scholar</a>
+          <a href="https://github.com/YYJoseph" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+          <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── NEWS ── -->
+<section id="news">
+  <div class="container">
+    <h2 class="section-title"><i class="fa-solid fa-newspaper" style="color:var(--accent);font-size:1rem"></i> News</h2>
+    <ul class="news-list">
+      <li>
+        <span class="news-date">Apr 2026</span>
+        <span>One paper accepted to <strong>[Conference/Journal Name]</strong>. 🎉</span>
+      </li>
+      <li>
+        <span class="news-date">Jan 2026</span>
+        <span>Started a research internship at <strong>[Company/Lab Name]</strong>.</span>
+      </li>
+      <li>
+        <span class="news-date">Sep 2024</span>
+        <span>Joined PolyU as a PhD student, supervised by <strong>Prof. [Supervisor Name]</strong>.</span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ── RESEARCH ── -->
+<section id="research">
+  <div class="container">
+    <h2 class="section-title"><i class="fa-solid fa-flask" style="color:var(--accent);font-size:1rem"></i> Research Interests</h2>
+    <div class="research-grid">
+      <div class="research-card">
+        <div class="research-icon">📡</div>
+        <h3>Beyond-Diagonal RIS (BD-RIS)</h3>
+        <p>Exploring advanced BD-RIS architectures that enable inter-element signal coupling, offering superior beamforming flexibility over conventional diagonal RIS for 6G systems.</p>
+      </div>
+      <div class="research-card">
+        <div class="research-icon">📶</div>
+        <h3>Reconfigurable Intelligent Surfaces</h3>
+        <p>Designing and analyzing RIS-assisted wireless communication systems, including channel modeling, passive beamforming optimization, and performance analysis.</p>
+      </div>
+      <div class="research-card">
+        <div class="research-icon">🔗</div>
+        <h3>6G Wireless Communications</h3>
+        <p>Investigating next-generation wireless network architectures and signal processing techniques to meet the demands of future ultra-reliable, high-throughput communications.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PUBLICATIONS ── -->
+<section id="publications">
+  <div class="container">
+    <h2 class="section-title"><i class="fa-solid fa-book-open" style="color:var(--accent);font-size:1rem"></i> Publications</h2>
+    <div class="pub-list">
+
+      <!-- Paper 1 -->
+      <div class="pub-item">
+        <span class="pub-badge">Conference</span>
+        <h3>Beyond Diagonal IRS Aided OFDM: Rate Maximization under Frequency-Dependent Reflection</h3>
+        <div class="pub-authors"><strong>Ye Yuan</strong>, Shuowen Zhang</div>
+        <div class="pub-venue">IEEE Global Communications Conference (Globecom 2025)</div>
+        <div class="pub-links">
+          <a href="https://arxiv.org/abs/2509.06378" target="_blank"><i class="fa-solid fa-file-pdf"></i> arXiv</a>
+          <a href="https://arxiv.org/pdf/2509.06378" target="_blank"><i class="fa-solid fa-file-pdf"></i> PDF</a>
+          <a href="#"><i class="fa-solid fa-quote-right"></i> BibTeX</a>
+        </div>
+      </div>
+
+      <!-- Paper 2 -->
+      <div class="pub-item">
+        <span class="pub-badge preprint">Preprint</span>
+        <h3>[Your Preprint Title — please fill in your actual publications]</h3>
+        <div class="pub-authors"><strong>Ye Yuan (袁野)</strong>, Co-author C, Supervisor Name</div>
+        <div class="pub-venue">arXiv preprint arXiv:2XXX.XXXXX, [Year]</div>
+        <div class="pub-links">
+          <a href="#"><i class="fa-solid fa-file-pdf"></i> PDF</a>
+          <a href="#"><i class="fa-brands fa-github"></i> Code</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── EDUCATION ── -->
+<section id="education">
+  <div class="container">
+    <h2 class="section-title"><i class="fa-solid fa-university" style="color:var(--accent);font-size:1rem"></i> Education</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="tl-period">2024 – Present</div>
+        <div class="tl-degree">Ph.D. in [Your Field]</div>
+        <div class="tl-school">The Hong Kong Polytechnic University (PolyU), Hong Kong</div>
+        <div class="tl-detail">Advisor: Prof. [Supervisor Name] · Department of [Your Department]</div>
+      </div>
+      <div class="timeline-item">
+        <div class="tl-period">2020 – 2024</div>
+        <div class="tl-degree">B.S. in [Your Field]</div>
+        <div class="tl-school">Beijing University of Posts and Telecommunications (BUPT), Beijing, China</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="container">
+    <h2 class="section-title"><i class="fa-solid fa-paper-plane" style="color:var(--accent);font-size:1rem"></i> Contact</h2>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-value"><a href="mailto:joseph.yuan@connect.polyu.hk">joseph.yuan@connect.polyu.hk</a></div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+        <div>
+          <div class="contact-label">Office</div>
+          <div class="contact-value">Room XXXX, [Building Name]<br>PolyU, Hung Hom, Kowloon</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon"><i class="fa-brands fa-google-scholar"></i></div>
+        <div>
+          <div class="contact-label">Google Scholar</div>
+          <div class="contact-value"><a href="https://scholar.google.com/citations?user=Ty2prD8AAAAJ&hl=zh-CN" target="_blank">View Profile →</a></div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon"><i class="fa-brands fa-github"></i></div>
+        <div>
+          <div class="contact-label">GitHub</div>
+          <div class="contact-value"><a href="https://github.com/YYJoseph" target="_blank">github.com/YYJoseph</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <p>© 2026 Ye Yuan (袁野) · Last updated April 2026 ·
+    <a href="https://www.polyu.edu.hk" target="_blank">The Hong Kong Polytechnic University</a>
+  </p>
+</footer>
+
+</body>
+</html>
